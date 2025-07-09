@@ -1,7 +1,7 @@
 const submitInfo = document.getElementById('item-form');
 const keyboardInput = document.getElementById('item-input');
 const listItems = document.getElementById('item-list');
-const xButton = document.getElementById('clear');
+const clearAll = document.getElementById('clear');
 
 function addItem(e) {
     e.preventDefault();
@@ -44,6 +44,13 @@ function removeItem(e) {
     }
 }
 
+function clearList() {
+    while(listItems.firstChild) {
+        listItems.removeChild(listItems.firstChild);
+    }
+}
+
 submitInfo.addEventListener('submit', addItem);
 keyboardInput.addEventListener('input', getInput);
 listItems.addEventListener('click', removeItem);
+clearAll.addEventListener('click', clearList);
